@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+
+{% block body %}
+    <div class="container">
+        <div class="row" style="padding: 1rem;" >
+            <div class="col-md-6 offset-md-3">
+                <div class="card">
+                    <div class="card-body">
+                      <h5 class="card-title">{{post.title}}</h5>
+                      <span>{{ post.publishing_date|timesince }} önce</span>
+                      <p class="card-text">{{post.content|linebreaks}}</p>
+
+                      <a href="{{ post.get_absolute_url }}" class="btn btn-primary">Okumaya Başla</a>
+                      <a href="{{ post.get_update_url }}" class="btn btn-default">Güncelle</a>
+                      <a href="{{ post.get_delete_url }}" class="btn btn-danger">Sil</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock body %}
