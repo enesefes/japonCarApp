@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
+import os
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -38,8 +40,14 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    # Kendi Uygulamarımız
     'post',
+
+    #3. Parti Uygulamarl
     'crispy_forms',
+    'django_cleanup',
+    'ckeditor',
+    'captcha',
 ]
 
 MIDDLEWARE = [
@@ -122,6 +130,17 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [BASE_DIR / 'static']
-#STATIC_ROOT = [BASE_DIR / 'static']
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles/')
+
+MEDIA_URL='/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # This is now a string
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+CKEDITOR_BASEPATH = "/staticfiles/ckeditor/ckeditor/"
+CKEDITOR_JQUERY_URL = os.path.join(STATIC_URL, 'js/jquery.min.js')
+
+
+RECAPTCHA_PUBLIC_KEY = '6Lcd-9YZAAAAAJLszGny63__He36vSKbURN3QW07'
+RECAPTCHA_PRIVATE_KEY = '6Lcd-9YZAAAAAO6kae3-M694gcwoACuxUkygSnT1'
+NOCAPTCHA = 'True'
