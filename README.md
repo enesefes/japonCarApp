@@ -1,5 +1,6 @@
 # japoncarapp
-Şuan için sadece iskelete yapısı bulunmaktadır.
+
+Djnago ile yapılmış bir blog sitesidir.
 
 ## Kurulum
 
